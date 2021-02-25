@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: Dancing Script, cursive;
+    font-size: 1.4vw;
+}
