@@ -1,5 +1,6 @@
 import React from 'react'
 import { styles } from './styles';
+
  const index = () => {
     return (
         <div style={styles.footerContainer}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Menu from '../components/Menu';
 import RiskLevelSelector from '../components/RiskLevelSelector';
 import Table from '../components/Table';
@@ -9,27 +9,17 @@ import Home from '../components/Home';
 import { styles } from './styles';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-export default class Approutes extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			riskLevel: 3,
-		};
-		this.onChangeRiskLevel = this.onChangeRiskLevel.bind(this);
-	}
 
-	onChangeRiskLevel(riskLevel) {
-		this.setState({ riskLevel });
-	}
+ const Approutes = () => {
+	 const [riskLevel,setRiskLevel]=useState(3);
+	 const onChangeRiskLevel=(newRiskLevel)=>setRiskLevel(newRiskLevel);
 
-	render() {
-		const { riskLevel } = this.state;
-		return (
+	return (
 			<BrowserRouter>
 			<div style={styles.mainContainer}>
 			<Header/>
 					<Menu />
-					<RiskLevelSelector onChangeRiskLevel={this.onChangeRiskLevel} />
+					<RiskLevelSelector onChangeRiskLevel={onChangeRiskLevel} />
 					<Switch>
 						<Route exact path="/" component={Home}/>
 						<Route path="/table" component={() => <Table riskLevel={riskLevel} />} />
@@ -38,6 +28,12 @@ export default class Approutes extends React.Component {
 					<Footer/>
 				</div>
 			</BrowserRouter>
-		);
-	}
+	)
 }
+
+export default Approutes;
+
+
+
+
+

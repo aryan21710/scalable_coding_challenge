@@ -8,13 +8,13 @@ export const styles = {
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		width: '100%',
-        height: '5vh',
+        height: '6vh',
         background: 'rgba(0,0,0,0.6)'
 	},
 	header: {
 		color: "white",
 		wordSpacing: '15px',
 		fontFamily: 'PT Sans Narrow',
-		letterSpacing: '2px'
+		letterSpacing: '2px',
 	}
 };

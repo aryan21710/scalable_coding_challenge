@@ -8,10 +8,10 @@ export const styles = {
 		justifyContent: 'space-around',
 		width: '100%',
 		height: '8vh',
-		background: 'rgba(50, 168, 82,0.6)',
+		background: 'rgba(50, 168, 82,0.9)',
 	},
 	innerContainer: {
-		width: '40%',
+		width: '35%',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-around',
