@@ -1,27 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Chart as ChartJs } from 'chart.js';
-import { calculateTimeSeries } from '../../common/utils';
+import { calculateTimeSeries1 } from '../../common/utils';
+import { useFetchConesApi } from '../../customHooks/useFetchConesApi';
 import cones from './../../../cones.json';
+import RiskLevelSelector from '../RiskLevelSelector';
+import { styles } from './styles';
 
-class Chart extends React.Component {
 
-    componentDidMount() {
-        this.drawChart();
-    }
+const Chart = () => {
+    // const [cone, setCone] = useState({});
+    const [riskLevel, setRiskLevel] = useState(3);
+    const canvasRef = useRef(null);
+    const onChangeRiskLevel = newRiskLevel => setRiskLevel(newRiskLevel);
+    // useFetchConesApi(setCone, riskLevel);
+    useEffect(()=>{
+        drawChart();
+    }, []);
 
-    drawChart() {
-        const { riskLevel } = this.props;
+    const drawChart = () => {
         const { mu, sigma } = cones.filter(cone => cone.riskLevel == riskLevel)[0];
-        const fee = 0.01;
 
-        const timeSeries = calculateTimeSeries({
+        const timeSeries = calculateTimeSeries1({
             mu,
             sigma,
             years: 10,
             initialSum: 10000,
             monthlySum: 200,
-            fee
+            fee: 0.01
         });
+
 
         const labels = timeSeries.median.map((v, idx) => idx % 12 == 0 ? idx / 12 : '');
         const dataMedian = timeSeries.median.map(v => v.y);
@@ -84,22 +91,22 @@ class Chart extends React.Component {
             options
         };
 
-        const canvas = this.canvas;
+        const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         const myChart = new ChartJs(context, config);
-    }
+    };
 
-    render() {
-        return (
-            <div>
-                <canvas
-                    ref={ref => this.canvas = ref}
-                    width={600}
-                    height={400}
-                />
-            </div>
-        );
-    }
-}
+    return (
+        <div style={styles.chartContainer}>
+            <RiskLevelSelector onChangeRiskLevel={onChangeRiskLevel} />
+            <canvas style={styles.chart}
+                ref={canvasRef}
+                width={600}
+                height={400}
+            />
+        </div>
+    );
+};
+
 
 export default Chart;

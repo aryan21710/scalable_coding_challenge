@@ -14,7 +14,7 @@ export const styles = {
         background: 'rgba(0,0,0,0.5)'
     },
     text: {
-        color: 'grey',
+        color: 'rgba(255,255,255,0.8)',
         wordSpacing: '5px'
     }
 };

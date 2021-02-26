@@ -14,7 +14,4 @@ export const styles = {
         color: 'white',
         wordWrap: 'break-word'
     },
-
-
-
 };
