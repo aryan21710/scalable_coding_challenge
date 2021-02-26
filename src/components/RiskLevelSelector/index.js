@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { styles } from './styles';
 
 class RiskLevelSelector extends React.Component {
 
@@ -26,8 +27,10 @@ class RiskLevelSelector extends React.Component {
         }
 
         return (
-            <div>
-                Risk level:
+            <div style={styles.riskLevelContainer}>
+            <label>
+            Risk level:
+            </label>
                 <select onChange={this.onChange} defaultValue={defultRiskl}>
                     {options}
                 </select>

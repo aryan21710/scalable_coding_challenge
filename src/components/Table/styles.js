@@ -1,22 +1,22 @@
 
 export const styles = {
-	mainContainer: {
+	tableContainer: {
 		width: '100vw',
-		height: '80vh',
-        marginTop: '15vh',
+        height: '80vh',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'column',
+        marginTop: '2vh'
     },
     gridContainer: {
         width:'70vw',
-        height:'70vh',
-        marginTop: '5vh',
+        height:'75vh',
+        marginTop: '2vh',
         background: 'rgba(0,0,0,0.7)',
         overflow: 'auto',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
-
     },
     resetBtn: {
         padding: '0.5vh 1vw',

@@ -23,7 +23,7 @@ const Table = () => {
 	});
 
 	return (
-		<div>
+		<div style={styles.tableContainer}>
 			<RiskLevelSelector onChangeRiskLevel={onChangeRiskLevel} />
 			<div style={styles.gridContainer}>
 				<GridDisplay timeSeries={timeSeries} />
