@@ -10,17 +10,17 @@ class RiskLevelSelector extends React.Component {
     }
 
     onChange(event) {
-        let {onChangeRiskLevel} = this.props;
+        let { onChangeRiskLevel } = this.props;
         var riskLevel = parseInt(event.target.value);
         onChangeRiskLevel(riskLevel);
     }
 
     render() {
 
-        const {minRiskLevel, maxRiskLevel} = this.props;
+        const {  maxRiskLevel } = this.props;
         var defultRiskl = 10;
         const options = [];
-        for(let k=1; k<=maxRiskLevel; ++k) {
+        for(let k = 1; k <= maxRiskLevel; ++k) {
             options.push(
                 <option key={k} value={k}>{k}</option>
             );
@@ -28,9 +28,9 @@ class RiskLevelSelector extends React.Component {
 
         return (
             <div style={styles.riskLevelContainer}>
-            <label>
+                <label>
             Risk level:
-            </label>
+                </label>
                 <select onChange={this.onChange} defaultValue={defultRiskl}>
                     {options}
                 </select>
@@ -40,13 +40,11 @@ class RiskLevelSelector extends React.Component {
 }
 
 RiskLevelSelector.defaultProps = {
-    minRiskLevel: 3,
     maxRiskLevel: 25,
     onChangeRiskLevel: () => {}
 };
 
 RiskLevelSelector.propTypes = {
-    minRiskLevel: PropTypes.number,
     maxRiskLevel: PropTypes.number,
     onChangeRiskLevel: PropTypes.func
 };

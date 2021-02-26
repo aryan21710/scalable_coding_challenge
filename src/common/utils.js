@@ -17,18 +17,18 @@ const calculateTimeSeries = (args) => {
     const { years, mu, sigma, fee, initialSum, monthlySum } = args;
     const series = [];
 
-    const obj={};
-    for (let k=0; k<=12 * years; ++k) {
+    const obj = {};
+    for (let k = 0; k <= 12 * years; ++k) {
         series.push(mapDate({ t: k / 12, mu, sigma, fee, initialSum, monthlySum }));
     }
 
-    return series.map((seriesElem,idx)=>{
-        obj['median']= seriesElem.median,
-        obj['good']=seriesElem.upper95,
-        obj['bad']=seriesElem.lower05,
-        obj['month']= idx
-        return {...obj}
-    })
+    return series.map((seriesElem, idx)=>{
+        obj['median'] = seriesElem.median,
+        obj['good'] = seriesElem.upper95,
+        obj['bad'] = seriesElem.lower05,
+        obj['month'] = idx;
+        return { ...obj };
+    });
 };
 
-export {calculateTimeSeries};
+export { calculateTimeSeries };

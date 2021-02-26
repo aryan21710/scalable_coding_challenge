@@ -1,7 +1,7 @@
 
 export const styles = {
-	tableContainer: {
-		width: '100vw',
+    tableContainer: {
+        width: '100vw',
         height: '80vh',
         display: 'flex',
         justifyContent: 'flex-start',

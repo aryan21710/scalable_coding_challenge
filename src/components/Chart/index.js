@@ -1,17 +1,17 @@
 import React from 'react';
-import {Chart as ChartJs} from 'chart.js';
-import {calculateTimeSeries} from '../../common/utils';
+import { Chart as ChartJs } from 'chart.js';
+import { calculateTimeSeries } from '../../common/utils';
 import cones from './../../../cones.json';
 
 class Chart extends React.Component {
 
     componentDidMount() {
-        this.drawChart()
+        this.drawChart();
     }
 
     drawChart() {
-        const {riskLevel} = this.props;
-        const {mu, sigma} = cones.filter(cone => cone.riskLevel == riskLevel)[0];
+        const { riskLevel } = this.props;
+        const { mu, sigma } = cones.filter(cone => cone.riskLevel == riskLevel)[0];
         const fee = 0.01;
 
         const timeSeries = calculateTimeSeries({
@@ -23,7 +23,7 @@ class Chart extends React.Component {
             fee
         });
 
-        const labels = timeSeries.median.map((v, idx) => idx % 12 == 0 ? idx/12 : '');
+        const labels = timeSeries.median.map((v, idx) => idx % 12 == 0 ? idx / 12 : '');
         const dataMedian = timeSeries.median.map(v => v.y);
         const dataGood = timeSeries.upper95.map(v => v.y);
         const dataBad = timeSeries.lower05.map(v => v.y);
@@ -52,7 +52,7 @@ class Chart extends React.Component {
                     pointRadius: 0
                 }
             ],
-                labels
+            labels
         };
 
         const options = {
@@ -85,7 +85,7 @@ class Chart extends React.Component {
         };
 
         const canvas = this.canvas;
-        const context = canvas.getContext("2d");
+        const context = canvas.getContext('2d');
         const myChart = new ChartJs(context, config);
     }
 
