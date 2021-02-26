@@ -1,5 +1,5 @@
 describe('Home Page', () => {
-        const homeUrl = 'http://localhost:3001/';
+        const homeUrl = 'http://localhost:3000/';
         const headerText='FRONTEND CODING CHALLENGE';
         const footerText='@Scalable-Capital Copyrighted by Aryan Sharma 02/2021. All Rights Reserved';
 	beforeEach(() => {

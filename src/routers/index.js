@@ -8,11 +8,14 @@ import Footer from '../components/Footer';
 import Home from '../components/Home';
 import { styles } from './styles';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useFetchConesApi } from '../customHooks/useFetchConesApi';
 
 
  const Approutes = () => {
 	 const [riskLevel,setRiskLevel]=useState(3);
+	 const [cone,setCone]=useState([])
 	 const onChangeRiskLevel=(newRiskLevel)=>setRiskLevel(newRiskLevel);
+	useFetchConesApi(setCone)
 
 	return (
 			<BrowserRouter>
@@ -22,8 +25,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 					<RiskLevelSelector onChangeRiskLevel={onChangeRiskLevel} />
 					<Switch>
 						<Route exact path="/" component={Home}/>
-						<Route path="/table" component={() => <Table riskLevel={riskLevel} />} />
-						<Route path="/chart" component={() => <Chart riskLevel={riskLevel} />} />
+						<Route path="/table" component={() => <Table riskLevel={riskLevel} cone={cone}/>} />
+						<Route path="/chart" component={() => <Chart riskLevel={riskLevel} cone={cone}/>} />
 					</Switch>
 					<Footer/>
 				</div>

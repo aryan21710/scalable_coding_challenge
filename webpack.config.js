@@ -4,8 +4,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const cones = require('./cones.json');
 
 module.exports = {
+  entry: ['babel-polyfill', './src/index'],
   mode: 'development',
-  entry: './src/index',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build')
@@ -15,7 +15,7 @@ module.exports = {
     new CopyWebpackPlugin([{ from: 'public/index.html' }])
   ],
   devServer: {
-    port: 3001,
+    port: 3000,
     contentBase: path.join(__dirname, './public'),
     hot: true,
     open: true,

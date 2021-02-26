@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { calculateTimeSeries } from '../../common/utils';
-import cones from '../../../cones.json';
 import { styles } from './styles';
 import GridDisplay from './GridDisplay';
 
-const Table = ({ riskLevel }) => {
-	const cone = cones.filter(cone => cone.riskLevel == riskLevel)[0];
-	const fee = 0.01;
+const Table = ({ riskLevel,cone }) => {
 
 	var timeSeries = calculateTimeSeries({
 		mu: cone.mu,
@@ -15,9 +12,9 @@ const Table = ({ riskLevel }) => {
 		years: 10,
 		initialSum: 10000,
 		monthlySum: 200,
-		fee,
+		fee : 0.01,
     });
-    
+
 	return (
 		<div style={styles.gridContainer}>
 			<GridDisplay timeSeries={timeSeries}/>
