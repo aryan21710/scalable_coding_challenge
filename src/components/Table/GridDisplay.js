@@ -4,8 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import {columnHeaders} from '../../common/constants';
 
-const GridDisplay = () => {
-    const rowData=[{}]
+const GridDisplay = ({timeSeries}) => {
 	return (
 		<div
 			id="myGrid"
@@ -18,7 +17,7 @@ const GridDisplay = () => {
 		>
 			<AgGridReact
 				columnDefs={columnHeaders}
-				rowData={rowData}
+				rowData={timeSeries}
 				
 			/>
 		</div>

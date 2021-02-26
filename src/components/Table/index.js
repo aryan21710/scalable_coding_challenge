@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { calculateTimeSeries } from '../../common/utils';
 import cones from '../../../cones.json';
@@ -16,39 +16,11 @@ const Table = ({ riskLevel }) => {
 		initialSum: 10000,
 		monthlySum: 200,
 		fee,
-	});
-	const months = timeSeries.median.map((v, idx) => idx);
-	var dataGood = timeSeries.upper95.map(v => v.y);
-	let dataMedian = timeSeries.median.map(v => v.y);
-	const dataBad = timeSeries.lower05.map(v => v.y);
-
-	const rows = months.map((entry, idx) =>
-		<tr key={idx}>
-			<td>
-				{entry}
-			</td>
-			<td>
-				{dataGood[idx]}
-			</td>
-			<td>
-				{dataMedian[idx]}
-			</td>
-			<td>
-				{dataBad[idx]}
-			</td>
-		</tr>
-	);
-
-	var tableHeader = React.createElement('tr', {}, [
-		React.createElement('th', { key: 'month' }, 'month'),
-		React.createElement('th', { key: 'good' }, 'good'),
-		React.createElement('th', { key: 'median' }, 'median'),
-		React.createElement('th', { key: 'bad' }, 'bad'),
-	]);
-
+    });
+    
 	return (
 		<div style={styles.gridContainer}>
-			<GridDisplay />
+			<GridDisplay timeSeries={timeSeries}/>
 		</div>
 	);
 };

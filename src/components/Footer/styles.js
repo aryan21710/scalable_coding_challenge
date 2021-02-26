@@ -12,10 +12,10 @@ export const styles = {
 		justifyContent: 'space-around',
 		width: '100%',
         height: '3vh',
-        background: 'rgba(0,0,0,0.9)'
+        background: 'rgba(0,0,0,0.5)'
 	},
 	text: {
-		color: "white",
+		color: "grey",
 		wordSpacing: '5px'
 	}
 };

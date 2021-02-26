@@ -7,8 +7,8 @@ export const styles = {
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		width: '100%',
-		height: '8vh',
-		background: 'rgba(50, 168, 82,0.9)',
+		height: '5vh',
+		background: 'rgba(212, 15, 24,0.8)',
 	},
 	innerContainer: {
 		width: '35%',
