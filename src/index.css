@@ -9,3 +9,14 @@ a {
     font-family: Dancing Script, cursive;
     font-size: 1.5vw;
 }
+
+.ag-theme-alpine .ag-row {
+	width: 100vw !important;
+  color: white !important;
+  background: transparent;
+}
+
+.ag-theme-alpine [class^='ag-'] {
+	background: rgba(0, 0, 0, 0.1) !important;
+	color: white !important;
+}
