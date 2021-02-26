@@ -23,6 +23,15 @@ describe('Home Page', () => {
         it('Validation of Footer Component', () => {
                 cy.url().should('eq', homeUrl);
 		cy.get('h4').contains(footerText);
-	});
+        });
+        
+        it ("Validation of URL Redirect for Menu Links",()=>{
+                cy.get('a').contains('Table-View').click({force: true});
+                cy.url().should('include', `/table`);
+                cy.get('a').contains('Home').click({force: true});
+                cy.url().should('include', `/`);
+                cy.get('a').contains('Chart-View').click({force: true});
+                cy.url().should('include', `/chart`);
+        })
 
 });
