@@ -13,13 +13,6 @@ export const columnHeaders = [
 		sortable: true,
         filter: true,
         resizable: true,
-	},
-	{
-		headerName: 'Bad',
-		field: 'bad',
-		sortable: true,
-        filter: true,
-        resizable: true,
     },
     {
 		headerName: 'Median',
@@ -28,6 +21,13 @@ export const columnHeaders = [
         filter: true,
         resizable: true,
 	},
+	{
+		headerName: 'Bad',
+		field: 'bad',
+		sortable: true,
+        filter: true,
+        resizable: true,
+    }
 ];
 
 export const APIURL= 'http://localhost:3000/api/cones'
