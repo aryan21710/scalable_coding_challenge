@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { calculateTimeSeries } from '../../common/utils';
 import { styles } from './styles';
 import GridDisplay from './GridDisplay';
-import RiskLevelSelector from '../RiskLevelSelector';
 import { useFetchConesApi } from '../../customHooks/useFetchConesApi';
 
 const Table = () => {
@@ -23,7 +22,6 @@ const Table = () => {
 
     return (
         <div style={styles.tableContainer}>
-            <RiskLevelSelector onChangeRiskLevel={onChangeRiskLevel} />
             <div style={styles.gridContainer}>
                 <GridDisplay timeSeries={timeSeries} />
             </div>
