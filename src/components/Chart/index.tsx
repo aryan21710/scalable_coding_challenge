@@ -9,7 +9,7 @@ import { styles } from './styles';
 
 const Chart = () => {
     // const [cone, setCone] = useState({});
-    const [riskLevel, setRiskLevel] = useState(3);
+    const [riskLevel, setRiskLevel] = useState<number>(3);
     const canvasRef = useRef(null);
     const onChangeRiskLevel = newRiskLevel => setRiskLevel(newRiskLevel);
     // useFetchConesApi(setCone, riskLevel);

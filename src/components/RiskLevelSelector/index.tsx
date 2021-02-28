@@ -39,14 +39,6 @@ class RiskLevelSelector extends React.Component {
     }
 }
 
-RiskLevelSelector.defaultProps = {
-    maxRiskLevel: 25,
-    onChangeRiskLevel: () => {}
-};
 
-RiskLevelSelector.propTypes = {
-    maxRiskLevel: PropTypes.number,
-    onChangeRiskLevel: PropTypes.func
-};
 
 export default RiskLevelSelector;

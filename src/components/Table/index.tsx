@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { calculateTimeSeries } from '../../common/utils';
-import { styles } from './styles';
+import { TableContainer,GridContainer } from './styles';
 import GridDisplay from './GridDisplay';
+import RiskLevelSelector from '../RiskLevelSelector';
 import { useFetchConesApi } from '../../customHooks/useFetchConesApi';
 
 const Table = () => {
-    const [cone, setCone] = useState({});
-    const [riskLevel, setRiskLevel] = useState(3);
-    const onChangeRiskLevel = newRiskLevel => setRiskLevel(newRiskLevel);
+    const [cone, setCone] = useState<object>({});
+    const [riskLevel, setRiskLevel] = useState<number>(3);
+    const onChangeRiskLevel:(newRiskLevel: React.SetStateAction<number>) => void = (newRiskLevel: React.SetStateAction<number>) => setRiskLevel(newRiskLevel);
 
     useFetchConesApi(setCone, riskLevel);
 
@@ -21,11 +22,11 @@ const Table = () => {
     });
 
     return (
-        <div style={styles.tableContainer}>
-            <div style={styles.gridContainer}>
+        <TableContainer>
+            <GridContainer>
                 <GridDisplay timeSeries={timeSeries} />
-            </div>
-        </div>
+            </GridContainer>
+        </TableContainer>
     );
 };
 

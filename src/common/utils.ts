@@ -12,9 +12,11 @@ function mapDate({ t, mu, sigma, fee, initialSum, monthlySum }) {
     };
 };
 
+interface MyArgs {
+years: number, mu: number, sigma: number, fee: number, initialSum: number, monthlySum: number
+}
 
-export const calculateTimeSeries = (args) => {
-    const { years, mu, sigma, fee, initialSum, monthlySum } = args;
+export const calculateTimeSeries: React.FC<MyArgs> = ({years, mu, sigma, fee, initialSum, monthlySum}):Array<object> => {
     const series = [];
 
     const obj = {};
